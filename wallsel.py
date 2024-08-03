@@ -8,6 +8,8 @@ from PIL import Image, ImageTk
 
 
 
+# TODO: impement fast image showing algo
+
 HOME = environ.get("HOME")
 DEFAULT_DIR = f"{HOME}/Pictures/"
 FONT=("monospace", 9)
@@ -86,55 +88,55 @@ class WallGUI:
 
 
 
-    def list_images(self):
-        #print(self.dir_path)
+    #def list_images(self):
+    #    #print(self.dir_path)
 
-# List of common image file extensions
-        image_extensions = {'.jpg', '.jpeg', '.png', '.bmp', }
+## List of common image file extensions
+    #    image_extensions = {'.jpg', '.jpeg', '.png', '.bmp', }
         
-        try:
+    #    try:
 
-            # List all entries in the directory
-            entries = listdir(self.dir_path)
+    #        # List all entries in the directory
+    #        entries = listdir(self.dir_path)
             
-            # Filter out files with image extensions
-            image_files = [
-                entry for entry in entries 
-                if path.isfile(path.join(self.dir_path, entry)) and 
-                path.splitext(entry)[1].lower() in image_extensions
-            ]
+    #        # Filter out files with image extensions
+    #        image_files = [
+    #            entry for entry in entries 
+    #            if path.isfile(path.join(self.dir_path, entry)) and 
+    #            path.splitext(entry)[1].lower() in image_extensions
+    #        ]
             
-            return image_files
+    #        return image_files
 
-        except:
-            return []
+    #    except:
+    #        return []
 
-    def show_images(self):
+    #def show_images(self):
 
-        images = self.list_images()
-        thumbnail = None
+    #    images = self.list_images()
+    #    thumbnail = None
 
-        if len(images) == 0:
-            print("[ERROR] no image found")
-            exit(1)
+    #    if len(images) == 0:
+    #        print("[ERROR] no image found")
+    #        exit(1)
 
 
-        for image in images:
-            image_path = path.join(self.dir_path, image)
-            with Image.open(image_path) as img:
-                img.thumbnail((80,80))
-                thumbnail = ImageTk.PhotoImage(img)
+    #    for image in images:
+    #        image_path = path.join(self.dir_path, image)
+    #        with Image.open(image_path) as img:
+    #            img.thumbnail((80,80))
+    #            thumbnail = ImageTk.PhotoImage(img)
 
-            print(f"{image} {image_path} {thumbnail}".split())
-        frame = tk.Frame(self.root, bg=self.bg)
-        frame.pack(padx=10, pady=10)
+    #        print(f"{image} {image_path} {thumbnail}".split())
+    #    frame = tk.Frame(self.root, bg=self.bg)
+    #    frame.pack(padx=10, pady=10)
 
-        # Create a label for each image thumbnail
-        label = tk.Label(frame, image=thumbnail, compound=tk.TOP)
-        label.pack(side=tk.LEFT, padx=5, pady=5)
+    #    # Create a label for each image thumbnail
+    #    label = tk.Label(frame, image=thumbnail, compound=tk.TOP)
+    #    label.pack(side=tk.LEFT, padx=5, pady=5)
 
-        # Keep a reference to avoid garbage collection
-        label.image = thumbnail
+    #    # Keep a reference to avoid garbage collection
+    #    label.image = thumbnail
 
 
 

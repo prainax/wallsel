@@ -14,3 +14,4 @@ python3 wallsel.py ~/wallpapers/
 python3 wallsel.py  # default directory is ~/Pictures
 
 ```
+

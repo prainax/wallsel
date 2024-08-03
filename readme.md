@@ -2,8 +2,7 @@
 
 select and change wallpaper.
 
-[image](image.png)
-
+> Not fully developed yet
 
 ```bash
 
